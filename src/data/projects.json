@@ -1,0 +1,14 @@
+[
+  {
+    "title": "reSpeak Inc.",
+    "image": "/images/project1.jpg",
+    "description": "AI Video translation service",
+    "link": ""
+  },
+  {
+    "title": "Project Two",
+    "image": "/images/project2.jpg",
+    "description": "Another awesome project to showcase.",
+    "link": "#"
+  }
+]

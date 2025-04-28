@@ -1,0 +1,124 @@
+body {
+  font-family: "Inter", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f6fb; /* soft, cool off-white */
+  color: #2d3142; /* deep charcoal */
+}
+header {
+  background: #8da1b9; /* muted steel blue */
+  color: #fff;
+  padding: 2rem 0 1rem 0;
+  text-align: center;
+}
+nav a {
+  color: #506680; /* medium desaturated blue */
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  background: #e9ecef; /* very light gray for nav backgrounds */
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+}
+nav a:hover {
+  color: #fff;
+  background: #506680;
+}
+main {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+section {
+  margin-bottom: 2.5rem;
+  background: #ffffff; /* white for cards/sections */
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44, 49, 66, 0.06);
+  padding: 2rem;
+}
+h1,
+h2,
+h3 {
+  font-family: "Inter", Arial, sans-serif;
+}
+footer {
+  text-align: center;
+  padding: 1rem 0;
+  background: #22223b;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+.project-card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(44, 49, 66, 0.06);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.2s;
+}
+.project-image {
+  width: 100%;
+  max-width: 320px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  background: #e9ecef;
+  box-shadow: 0 1px 4px rgba(44, 49, 66, 0.04);
+}
+.project-card:hover {
+  box-shadow: 0 4px 16px rgba(34, 34, 59, 0.12);
+}
+.projects-grid h3 {
+  margin-top: 0;
+}
+.projects-grid a {
+  margin-top: auto;
+  color: #506680;
+  font-weight: 500;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.projects-grid a:hover {
+  color: #8da1b9;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.2rem;
+}
+.about-profile {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  object-position: center 20%;
+  border-radius: 50%;
+  box-shadow: 0 1px 6px rgba(44, 49, 66, 0.1);
+  background: #e9ecef;
+}
+@media (max-width: 600px) {
+  .about-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  main {
+    padding: 0 0.5rem;
+  }
+  section {
+    padding: 1rem;
+  }
+}
