@@ -4,20 +4,35 @@ on:
   push:
     branches: [master]
 
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - run: npm install
-      - run: |
-          npm run build
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      - name: Install, build, and upload your site output
+        uses: withastro/action@v2
         env:
-          ASTRO_SITE: "https://Ryan-Knowles.github.io/ryan-portfolio/"
-          ASTRO_BASE: "/ryan-portfolio/"
-      - uses: withastro/action@v2
+          ASTRO_SITE: "https://Ryan-Knowles.github.io"
+          ASTRO_BASE: "/my-portfolio"
         with:
-          deploy-dir: dist
+          # path: . # The root location of your Astro project inside the repository. (optional)
+          node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 18. (optional)
+          # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
