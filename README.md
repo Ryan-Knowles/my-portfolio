@@ -25,8 +25,25 @@ This is a personal portfolio website built with [Astro](https://astro.build/) an
 
 ## Deployment
 
-This project is configured for deployment to GitHub Pages. Make sure to update the `site` and `base` in `astro.config.mjs` to match your repo name.
+This project is configured for easy deployment to GitHub Pages using GitHub Actions.
 
-You can use [GitHub Actions](https://docs.astro.build/en/guides/deploy/github/) or manually push the `dist/` folder to the `gh-pages` branch.
+### Automatic Deployment with GitHub Actions
+- Deployment is triggered automatically whenever you push to the `main` branch.
+- The workflow in `.github/workflows/deploy.yml` builds your site and publishes it to GitHub Pages.
+- No manual changes to `astro.config.mjs` are needed; the workflow sets the `site` and `base` values using environment variables at build time.
+
+**To deploy:**
+1. Commit and push your changes to the `main` branch:
+   ```bash
+   git add .
+   git commit -m "Your message"
+   git push origin main
+   ```
+2. GitHub Actions will build and deploy your site automatically. You can monitor progress in the Actions tab of your repository.
+
+### Manual Deployment (optional)
+If you want to deploy manually, you can build your site and push the `dist/` folder to the `gh-pages` branch yourself.
+
+For more details, see the [Astro GitHub Pages guide](https://docs.astro.build/en/guides/deploy/github/).
 
 ---
